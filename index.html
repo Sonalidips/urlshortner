@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title> Url shortening App</title>
+        <link rel="stylesheet" href="css/main.css"/>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="js/common.js" ></script>
+
+        <!-- Bootstrap depends on JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+
+        <!-- Bootstrap Optional theme -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.css">
+
+        <!-- Bootstrap JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body ng-app = "UrlShorteningApp">
+
+        <h1 class = "text-center ">URL Sortening </h1>
+        <div class = "ng-scope">
+            <div class = "ng-scope">
+                <div  ng-controller = "UrlShortening" class="container  align-center text-center ">
+                    <form name="userForm" novalidate>
+                        <div class =" input-group panel">
+                            <input class = "form-control" type="text" style="width: 331px" value="longUrl"  placeholder="Your Original URL here..." ng-model = "longUrl" name="longUrl" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" ng-change="checkUrl(longUrl)" required >
+                            <button type="submit" ng-click= "UrlShortening(longUrl)" ng-disabled="userForm.$invalid || isError" class = "btn btn-default " style="margin-top: 10px"> SHORTEN</button>
+                            <span ng-show="((userForm.longUrl.$invalid && userForm.longUrl.$dirty)&&(userForm.longUrl.$viewValue))" class="help-block error-text">Please add some valid URL</span>
+                        </div>
+                    </form>
+                    <div class="jumbotron text-center align-center input-group panel"  style="width: 331px"ng-show="urlShow" >
+                        <a target="_blank" href="{{shortUrl}}" id = "res">{{shortUrl}}</a>
+                    </div>
+
+                    <div class="error-wrapper">
+                        <span>{{error}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

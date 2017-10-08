@@ -1,0 +1,30 @@
+.error-text {
+    color: red;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  background-color: aliceblue;
+}
+
+.align-center {
+	width: 20%;
+	margin:0 auto;
+}
+
+div{
+	display: block;
+}
+.extra{
+	margin-top: -19%;
+	margin-left: 100%;
+	float: center;
+}
+

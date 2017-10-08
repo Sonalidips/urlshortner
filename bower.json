@@ -1,0 +1,7 @@
+{
+  "name": "front",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "^1.5.3"
+  }
+}
