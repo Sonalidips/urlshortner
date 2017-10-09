@@ -34,18 +34,29 @@
                         <div class =" input-group panel">
                             <input class = "form-control" type="text" style="width: 331px" value="longUrl"  placeholder="Your Original URL here..." ng-model = "longUrl" name="longUrl" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" ng-change="checkUrl(longUrl)" required >
                             <button type="submit" ng-click= "UrlShortening(longUrl)" ng-disabled="userForm.$invalid || isError" class = "btn btn-default " style="margin-top: 10px"> SHORTEN</button>
-                            <span ng-show="((userForm.longUrl.$invalid && userForm.longUrl.$dirty)&&(userForm.longUrl.$viewValue))" class="help-block error-text">Please add some valid URL</span>
+                            <span ng-show="((userForm.longUrl.$invalid && userForm.longUrl.$dirty) && (userForm.longUrl.$viewValue))" class="help-block error-text">Please add some valid URL</span>
                         </div>
-                    </form>
                     <div class="jumbotron text-center align-center input-group panel"  style="width: 331px"ng-show="urlShow" >
-                        <a target="_blank" href="{{shortUrl}}" id = "res">{{shortUrl}}</a>
+                        <a target="_blank" href="{{shortUrl}}">{{shortUrl}}</a>
                     </div>
-
+                     <div class="error-wrapper">
+                        <span>{{error}}</span>
+                    </div>
+                    
+                    <div class="input-group panel " style="margin-top: 20px " >
+                        <input class = "form-control" type="text" style="width: 331px" value="shortUrlCreate" placeholder="Your Short URL here..."   ng-model = " shortUrlCreate" name="shortUrlCreate"  ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" ng-change="checkUrlShort(shortUrlCreate)" >
+                            <button type="submit" ng-click= "UrlLongering(shortUrlCreate)"  class = "btn btn-default " style="margin-top: 10px">Long URL</button>
+                            <span ng-show="((userForm.shortUrlCreate.$invalid && userForm.shortUrlCreate.$dirty) && (userForm.shortUrlCreate.$viewValue))" class="help-block error-text">Please add some valid URL</span>
+                    </div>
+                     <div class="jumbotron text-center align-center input-group panel"  style="width: 331px" ng-show="urlShowLong" >
+                             <a target="_blank" href="{{longerUrl}}" >{{longerUrl}}</a>
+                     </div>
                     <div class="error-wrapper">
                         <span>{{error}}</span>
                     </div>
-                </div>
+                         </form>
             </div>
+        </div>
         </div>
     </body>
 </html>
